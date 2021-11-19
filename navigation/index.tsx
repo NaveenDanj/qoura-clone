@@ -3,7 +3,6 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
-import { FontAwesome } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -12,11 +11,15 @@ import { ColorSchemeName, Pressable , Text } from 'react-native';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
+
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import NotificationsTab from '../screens/NotificationsTab';
+import AnswersTab from '../screens/AnswersTab';
+
+
 
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
@@ -24,6 +27,7 @@ import LinkingConfiguration from './LinkingConfiguration';
 //icons
 import { AntDesign } from '@expo/vector-icons'; 
 import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -93,10 +97,10 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="TabTwo"
-        component={TabTwoScreen}
+        component={AnswersTab}
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <AntDesign name="home" size={24} color="black" />,
+          title: 'Answer',
+          tabBarIcon: ({ color }) => <FontAwesome name="pencil-square-o" size={24} color="black" />,
         }}
       />
 
@@ -122,8 +126,6 @@ function BottomTabNavigator() {
           ),
           
         })}
-
-
       />
 
     </BottomTab.Navigator>

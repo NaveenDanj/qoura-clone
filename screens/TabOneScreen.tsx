@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View , ScrollView } from 'react-native';
 import { RootTabScreenProps } from '../types';
 
@@ -21,7 +20,7 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
         <Post />
       </ScrollView>
     </View>
-    
+
   );
 }
 
