@@ -16,12 +16,14 @@ import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
+import NotificationsTab from '../screens/NotificationsTab';
+
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 
 //icons
 import { AntDesign } from '@expo/vector-icons'; 
-
+import { Ionicons } from '@expo/vector-icons';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -97,7 +99,21 @@ function BottomTabNavigator() {
           tabBarIcon: ({ color }) => <AntDesign name="home" size={24} color="black" />,
         }}
       />
+
+      <BottomTab.Screen
+        name="Notifications"
+        component={NotificationsTab}
+        options={{
+          title: 'Notifications',
+          tabBarIcon: ({ color }) => <Ionicons name="notifications" size={24} color="black" />,
+        }}
+      />
+
+
+
     </BottomTab.Navigator>
+
+    
   );
 }
 
