@@ -102,14 +102,29 @@ function BottomTabNavigator() {
 
       <BottomTab.Screen
         name="Notifications"
+        
         component={NotificationsTab}
-        options={{
-          title: 'Notifications',
-          tabBarIcon: ({ color }) => <Ionicons name="notifications" size={24} color="black" />,
-        }}
+        options={({ navigation }: RootTabScreenProps<'Notifications'>) => ({
+
+          title : "Notifications",
+
+          tabBarIcon: ({ color }) => <Ionicons name="notifications-outline" size={24} color="black" />,
+          headerRight: () => (
+
+            <Pressable
+              onPress={() => navigation.navigate('Modal')}
+              style={({ pressed }) => ({
+                opacity: pressed ? 0.5 : 1,
+                marginRight : 5
+              })}>
+              <AntDesign name="search1" size={24} color="black" />
+            </Pressable>
+          ),
+          
+        })}
+
+
       />
-
-
 
     </BottomTab.Navigator>
 
