@@ -2,7 +2,8 @@ import React from 'react'
 import { StyleSheet , View , ScrollView , Text } from 'react-native';
 import { TabView, Tab , Layout } from '@ui-kitten/components';
 
-
+//components
+import ForYouTab from '../components/Answer/ForYouTab';
 
 
 function AnswersTab() {
@@ -19,9 +20,7 @@ function AnswersTab() {
                 onSelect={index => setSelectedIndex(index)}>
 
                 <Tab title='For you' >
-                    <Layout>
-                        <Text >USERS</Text>
-                    </Layout>
+                    <ForYouTab />
                 </Tab>
                 
                 <Tab title='Requests'>

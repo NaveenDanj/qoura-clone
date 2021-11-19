@@ -20,10 +20,10 @@ function NotificationsTab() {
                 <NotificationItem />
                 <NotificationItem />
                 <NotificationItem />
-
-                <View style={{ marginTop : 50 }}>
-                </View>
-
+                <NotificationItem />
+                <NotificationItem />
+                <NotificationItem />
+                <NotificationItem />
             </ScrollView>
 
             
@@ -35,7 +35,9 @@ function NotificationsTab() {
 const styles = StyleSheet.create({
 
     container : {
-        marginTop : 1
+        marginTop : 1,
+        paddingBottom : 60
+
     }
 
 })

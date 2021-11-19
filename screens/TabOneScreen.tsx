@@ -18,6 +18,9 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
         <Post />
         <Post />
         <Post />
+        <Post />
+        <Post />
+        <Post />
       </ScrollView>
     </View>
 
