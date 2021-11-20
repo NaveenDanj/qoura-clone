@@ -28,6 +28,7 @@ export type RootTabParamList = {
   TabOne: undefined;
   TabTwo: undefined;
   Notifications : undefined;
+  Account : undefined;
 
 };
 

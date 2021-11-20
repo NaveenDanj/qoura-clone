@@ -25,9 +25,10 @@ import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../typ
 import LinkingConfiguration from './LinkingConfiguration';
 
 //icons
-import { AntDesign } from '@expo/vector-icons'; 
+import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons'; 
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
+import AccountTab from '../screens/AccountTab';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -98,10 +99,22 @@ function BottomTabNavigator() {
       <BottomTab.Screen
         name="TabTwo"
         component={AnswersTab}
-        options={{
+        options={ ({ navigation }: RootTabScreenProps<'TabTwo'>) => ( {
           title: 'Answer',
           tabBarIcon: ({ color }) => <FontAwesome name="pencil-square-o" size={24} color="black" />,
-        }}
+          headerRight: () => (
+
+            <Pressable
+              onPress={() => navigation.navigate('Search')}
+              style={({ pressed }) => ({
+                opacity: pressed ? 0.5 : 1,
+                marginRight : 5
+              })}>
+              <AntDesign name="search1" size={24} color="black" />
+            </Pressable>
+          ),
+          
+        })}
       />
 
       <BottomTab.Screen
@@ -113,6 +126,30 @@ function BottomTabNavigator() {
           title : "Notifications",
 
           tabBarIcon: ({ color }) => <Ionicons name="notifications-outline" size={24} color="black" />,
+          headerRight: () => (
+
+            <Pressable
+              onPress={() => navigation.navigate('Search')}
+              style={({ pressed }) => ({
+                opacity: pressed ? 0.5 : 1,
+                marginRight : 5
+              })}>
+              <AntDesign name="search1" size={24} color="black" />
+            </Pressable>
+          ),
+          
+        })}
+      />
+
+      <BottomTab.Screen
+        name="Account"
+        
+        component={AccountTab}
+        options={({ navigation }: RootTabScreenProps<'Account'>) => ({
+
+          title : "Account",
+
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="account-circle-outline" size={24} color="black" />,
           headerRight: () => (
 
             <Pressable

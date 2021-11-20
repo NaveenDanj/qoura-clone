@@ -4,7 +4,7 @@ import { TabView, Tab , Layout } from '@ui-kitten/components';
 
 //components
 import ForYouTab from '../components/Answer/ForYouTab';
-
+import RequestTab from '../components/Answer/RequestTab';
 
 function AnswersTab() {
 
@@ -24,18 +24,9 @@ function AnswersTab() {
                 </Tab>
                 
                 <Tab title='Requests'>
-                    <Layout>
-                        <Text >USERS</Text>
-                    </Layout>
+                    <RequestTab />
                 </Tab>
-                
-                <Tab title='Answer Drafts'>
-
-                    <Layout>
-                        <Text >USERS</Text>
-                    </Layout>
-
-                </Tab>
+            
             
             </TabView>
         </View>

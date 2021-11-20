@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet , View , Text } from 'react-native';
+import { StyleSheet , View , Text , ScrollView } from 'react-native';
 
 import { Input } from '@ui-kitten/components';
 import { EvilIcons } from '@expo/vector-icons';
@@ -17,9 +17,22 @@ export default function ModalScreen() {
         accessoryRight={<EvilIcons name="search" size={24} color="black" />}
       />
 
-      <SearchItem />
-      <SearchItem />
-      <SearchItem />
+      <ScrollView>
+
+        <SearchItem />
+        <SearchItem />
+        <SearchItem />
+
+        <SearchItem />
+        <SearchItem />
+        <SearchItem />
+
+        <SearchItem />
+        <SearchItem />
+        <SearchItem />
+
+
+      </ScrollView>
 
     </View>
   );
