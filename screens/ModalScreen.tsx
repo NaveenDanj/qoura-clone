@@ -5,6 +5,9 @@ import { Input } from '@ui-kitten/components';
 import { EvilIcons } from '@expo/vector-icons';
 
 
+import SearchItem from '../components/Global/SearchItem';
+
+
 export default function ModalScreen() {
   return (
     <View style={styles.container}>
@@ -12,9 +15,11 @@ export default function ModalScreen() {
       <Input 
         placeholder="Search..."
         accessoryRight={<EvilIcons name="search" size={24} color="black" />}
-      
-      
       />
+
+      <SearchItem />
+      <SearchItem />
+      <SearchItem />
 
     </View>
   );
