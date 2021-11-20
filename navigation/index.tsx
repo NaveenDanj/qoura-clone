@@ -51,7 +51,7 @@ function RootNavigator() {
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
-        <Stack.Screen name="Modal" component={ModalScreen} />
+        <Stack.Screen name="Search" component={ModalScreen} />
       </Stack.Group>
     </Stack.Navigator>
   );
@@ -84,7 +84,7 @@ function BottomTabNavigator() {
           headerRight: () => (
 
             <Pressable
-              onPress={() => navigation.navigate('Modal')}
+              onPress={() => navigation.navigate('Search')}
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
                 marginRight : 5
@@ -116,7 +116,7 @@ function BottomTabNavigator() {
           headerRight: () => (
 
             <Pressable
-              onPress={() => navigation.navigate('Modal')}
+              onPress={() => navigation.navigate('Search')}
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
                 marginRight : 5
