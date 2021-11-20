@@ -1,16 +1,21 @@
 import { EvilIcons, Fontisto, Ionicons, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons'
 import React from 'react'
-import { StyleSheet, Text, View , Image, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View , Image, TouchableOpacity , ScrollView } from 'react-native'
 import { Button} from '@ui-kitten/components';
 
-import { TabView, Tab , Layout } from '@ui-kitten/components';
+import { TabView, Tab } from '@ui-kitten/components';
+import AnswersTab from '../components/Account/AnswerTab';
+import QuestionTab from '../components/Account/QuestionTab';
+import PostTab from '../components/Account/PostTab';
+import FollowingTab from '../components/Account/FollowingTab';
+import FollowersTab from '../components/Account/FollwersTab';
 
 const AccountTab = () => {
     
     const [selectedIndex, setSelectedIndex] = React.useState(0);
 
-    
     return (
+
         <View style={styles.container}>
             
             <View style={{ backgroundColor : 'white' , padding : 5 }}>
@@ -120,20 +125,27 @@ const AccountTab = () => {
 
             </View>
 
-            <View  style={{ backgroundColor : 'white' , marginTop : 5}}>
+            <View  style={{ backgroundColor : 'white' , marginTop : 5 , paddingBottom : 10}}>
 
                 <TabView
-
                     style={{ marginTop : 1 }}
                     selectedIndex={selectedIndex}
                     onSelect={index => setSelectedIndex(index)}>
 
-                    <Tab title='For you' >
-                        <Text>For you</Text>
+                    <Tab title='Answers' >
+                        <AnswersTab />
                     </Tab>
 
-                    <Tab title='Requests'>
-                        <Text>Requests</Text>
+                    <Tab title='Questions'>
+                        <QuestionTab />
+                    </Tab>
+
+                    <Tab title='Followers'>
+                        <FollowersTab />
+                    </Tab>
+
+                    <Tab title='Following'>
+                        <FollowingTab />
                     </Tab>
 
 
@@ -141,9 +153,9 @@ const AccountTab = () => {
 
             </View>
 
-
         </View>
-    )
+
+    ) 
 }
 
 export default AccountTab
@@ -151,7 +163,7 @@ export default AccountTab
 const styles = StyleSheet.create({
 
     container : {
-        padding : 1
+        padding : 1,
     }
 
 })

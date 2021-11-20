@@ -20,6 +20,22 @@ const RequestTab = () => {
                 <Question />
                 <Question />
                 <Question />
+
+                <Question />
+                <Question />
+                <Question />
+
+                <Question />
+                <Question />
+                <Question />
+
+                <Question />
+                <Question />
+                <Question />
+
+                <Question />
+                <Question />
+                <Question />
             </ScrollView>
 
         </View>

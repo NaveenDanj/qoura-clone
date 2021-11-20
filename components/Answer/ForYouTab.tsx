@@ -9,6 +9,7 @@ import Question from './Question';
 
 function ForYouTab() {
     return (
+
         <View style={styles.container}>
             
             <View style={{ flexDirection : 'row' , padding : 10 , borderBottomColor : 'gray' , borderBottomWidth : 0.2 }}>
@@ -19,26 +20,11 @@ function ForYouTab() {
             <ScrollView>
                 <Question />
                 <Question />
-                <Question />
-                <Question />
-                <Question />
-                <Question />
-                <Question />
-                <Question />
-                <Question />
-                <Question />
-                <Question />
-                <Question />
-                <Question />
-                <Question />
-                <Question />
-                <Question />
-                <Question />
+                
             </ScrollView>
 
-            
-
         </View>
+
     )
 }
 

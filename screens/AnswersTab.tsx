@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet , View , ScrollView , Text } from 'react-native';
-import { TabView, Tab , Layout } from '@ui-kitten/components';
+import { TabView, Tab } from '@ui-kitten/components';
 
 //components
 import ForYouTab from '../components/Answer/ForYouTab';
@@ -9,7 +9,6 @@ import RequestTab from '../components/Answer/RequestTab';
 function AnswersTab() {
 
     const [selectedIndex, setSelectedIndex] = React.useState(0);
-
 
     return (
         <View>
