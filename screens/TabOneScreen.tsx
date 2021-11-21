@@ -7,6 +7,7 @@ import { RootTabScreenProps } from '../types';
 //componenets
 import DailyDigest from '../components/Home/DailyDigest';
 import Post from '../components/Global/Post';
+import CreateAnswerButton from '../components/Global/CreateAnswerButton';
 
 
 export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
@@ -22,6 +23,10 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
         <Post />
         <Post />
       </ScrollView>
+      
+      <CreateAnswerButton />
+
+
     </View>
 
   );
@@ -41,4 +46,5 @@ const styles = StyleSheet.create({
     height: 1,
     width: '80%',
   },
+
 });

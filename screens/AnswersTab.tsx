@@ -5,6 +5,7 @@ import { TabView, Tab } from '@ui-kitten/components';
 //components
 import ForYouTab from '../components/Answer/ForYouTab';
 import RequestTab from '../components/Answer/RequestTab';
+import CreateAnswerButton from '../components/Global/CreateAnswerButton';
 
 function AnswersTab() {
 
@@ -12,6 +13,7 @@ function AnswersTab() {
 
     return (
         <View>
+
             <TabView
 
                 style={{ marginTop : 1 }}
@@ -26,8 +28,10 @@ function AnswersTab() {
                     <RequestTab />
                 </Tab>
             
-            
             </TabView>
+
+
+
         </View>
     )
 }
