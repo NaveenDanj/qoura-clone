@@ -17,11 +17,6 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
       <ScrollView>
         <DailyDigest />
         <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
       </ScrollView>
       
       <CreateAnswerButton />

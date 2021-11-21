@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useState} from 'react'
 import { StyleSheet , Text, View , Image , TouchableOpacity } from 'react-native';
 
 import { Ionicons } from '@expo/vector-icons';
@@ -6,7 +6,16 @@ import { Foundation } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
+import { Input } from '@ui-kitten/components';
+
+
+import Comment from '../Global/Comment'
+
 function Post() {
+
+    const [showComment , setShowComment] = useState(false);
+
+
     return (
         <View style={styles.container}>
             
@@ -65,7 +74,7 @@ function Post() {
 
                     <View style={{ flexDirection : 'row' , alignItems : 'center' , marginLeft : 10  }}>
 
-                        <TouchableOpacity style={{ flexDirection : 'row' , marginRight : 10}}>
+                        <TouchableOpacity onPress = { () => setShowComment(!showComment) } style={{ flexDirection : 'row' , marginRight : 10}}>
                             <Fontisto name="comment" size={15} color="black" />
                             <Text>13</Text>
                         </TouchableOpacity>
@@ -86,6 +95,37 @@ function Post() {
 
             </View>
 
+            { showComment && (
+
+                <View style={styles.comments}>
+
+                    <View style={{ flexDirection : 'row' }}>
+                        <Image style={{ width : 40 , height : 40 , borderRadius : 20 , alignItems : 'center' }} source={{ uri : 'https://avatars.githubusercontent.com/u/48654030?v=4' }} />
+                        <View style={{ flex : 1 , marginLeft : 5 , justifyContent : 'center' }}>
+                            <Input placeholder={''} style={{ borderRadius : 25 }} />
+                        </View>
+                    </View>
+
+                </View>
+
+
+
+            ) } 
+
+            { showComment && (
+
+                <View style={styles.commentsList}>
+
+                    <Comment />
+                    <Comment />
+                    <Comment />
+                    <Comment />
+
+                </View>
+
+
+            ) } 
+            
 
         </View>
     )
@@ -131,6 +171,19 @@ const styles = StyleSheet.create({
         padding : 5,
         backgroundColor : '#F2F2F2',
         borderRadius : 20
+    },
+
+    commentsList : {
+        backgroundColor : '#F2F2F2',
+        padding : 10,
+        
+    },
+
+    comments : {
+        backgroundColor : '#F2F2F2',
+        padding : 10,
+        borderBottomWidth : 0.2,
+        
     }
 
 })

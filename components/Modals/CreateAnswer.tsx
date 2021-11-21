@@ -22,20 +22,6 @@ const CreateAnswer = (props : any) => {
                 }}
             >
 
-
-
-                {/* <View style={styles.centeredView}>
-                    <View style={styles.modalView}>
-                        <Text style={styles.modalText}>Hello World!</Text>
-                        <Pressable
-                        style={[styles.button, styles.buttonClose]}
-                        onPress={() => setIsOpen(!isOpen)}
-                        >
-                        <Text style={styles.textStyle}>Hide Modal</Text>
-                        </Pressable>
-                    </View>
-                </View> */}
-
                 <View style={styles.container}>
                     
                     <View style={styles.header}>
@@ -77,9 +63,7 @@ const CreateAnswer = (props : any) => {
                     <View style={styles.userInput}>
                         <Input
                             multiline = {true}
-                            // textStyle={{ minHeight: 64 }}
                             placeholder='Start your question with "What" , "How" , "Why" , etc.'
-                            
                         />
                     </View>
 
