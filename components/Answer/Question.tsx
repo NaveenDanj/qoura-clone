@@ -3,7 +3,10 @@ import { StyleSheet, Text, View , TouchableOpacity } from 'react-native'
 
 import { Entypo, EvilIcons, FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
 
-const Question = () => {
+const Question = (props : any) => {
+    
+    const navigation = props.navigation;
+    
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -32,7 +35,7 @@ const Question = () => {
                         <Text style={{fontSize : 13 , marginLeft : 5}}>Follow 1</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={{ marginRight : 20 , flexDirection : 'row' , alignItems : 'center' }}>
+                    <TouchableOpacity onPress={() =>  navigation.navigate('QuestionView')  } style={{ marginRight : 20 , flexDirection : 'row' , alignItems : 'center' }}>
                         <MaterialCommunityIcons name="format-color-marker-cancel" size={20} color="black" />
                         <Text style={{fontSize : 13 , marginLeft : 5}}>Pass</Text>
                     </TouchableOpacity>

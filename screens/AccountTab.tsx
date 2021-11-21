@@ -10,7 +10,7 @@ import PostTab from '../components/Account/PostTab';
 import FollowingTab from '../components/Account/FollowingTab';
 import FollowersTab from '../components/Account/FollwersTab';
 
-const AccountTab = () => {
+const AccountTab = ({navigation} :  any) => {
     
     const [selectedIndex, setSelectedIndex] = React.useState(0);
 
@@ -63,7 +63,7 @@ const AccountTab = () => {
                         <Text>Credentials & Highlights</Text>
                     </View>
 
-                    <TouchableOpacity style={{ alignItems : 'center' }}>
+                    <TouchableOpacity  style={{ alignItems : 'center' }}>
                         <MaterialCommunityIcons name="pencil-outline" size={24} color="black" />
                     </TouchableOpacity>
 
@@ -133,7 +133,7 @@ const AccountTab = () => {
                     onSelect={index => setSelectedIndex(index)}>
 
                     <Tab title='Answers' >
-                        <AnswersTab />
+                        <AnswersTab navigation={navigation} />
                     </Tab>
 
                     <Tab title='Questions'>

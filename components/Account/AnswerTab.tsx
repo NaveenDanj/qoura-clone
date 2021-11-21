@@ -4,11 +4,13 @@ import { List, ListItem } from '@ui-kitten/components';
 
 import Question from '../Answer/Question'
 
-const AnswerTab = () => {
 
+const AnswerTab = (props : any) => {
+
+    const navigation = props.navigation
 
     const renderItem = () => (
-        <Question />
+        <Question navigation={navigation} />
     );
 
 

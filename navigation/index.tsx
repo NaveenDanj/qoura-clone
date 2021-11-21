@@ -18,7 +18,7 @@ import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import NotificationsTab from '../screens/NotificationsTab';
 import AnswersTab from '../screens/AnswersTab';
-
+import QuestionView from '../screens/QuestionView';
 
 
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
@@ -51,6 +51,7 @@ function RootNavigator() {
     <Stack.Navigator>
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
+      <Stack.Screen name="QuestionView" component={QuestionView} options={{ title: 'Question' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Search" component={ModalScreen} />
       </Stack.Group>

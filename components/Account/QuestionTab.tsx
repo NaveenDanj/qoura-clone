@@ -2,7 +2,7 @@ import React from 'react'
 import { FlatList , StyleSheet, Text, View } from 'react-native'
 import Question from '../Answer/Question'
 
-const QuestionTab = () => {
+const QuestionTab = ({navigation} :  any) => {
 
     const renderItem = () => (
         <Question />
