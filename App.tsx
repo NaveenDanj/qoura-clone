@@ -9,6 +9,7 @@ import Navigation from './navigation';
 import * as eva from '@eva-design/eva';
 import { ApplicationProvider, Layout, Text } from '@ui-kitten/components';
 
+import {QuestionModelProvider} from './components/Contexts/CreateQuestionContext';
 
 
 export default function App() {
@@ -20,10 +21,12 @@ export default function App() {
   } else {
     return (
       <ApplicationProvider {...eva} theme={eva.light}>
-        <SafeAreaProvider>
-          <Navigation colorScheme={colorScheme} />
-          <StatusBar />
-        </SafeAreaProvider>
+        <QuestionModelProvider>
+          <SafeAreaProvider>
+            <Navigation colorScheme={colorScheme} />
+            <StatusBar />
+          </SafeAreaProvider>
+        </QuestionModelProvider>
       </ApplicationProvider>
     );
   }
