@@ -19,5 +19,5 @@ export const editeProfileModelSlice = createSlice({
 });
 
 export const {setShow} = editeProfileModelSlice.actions;
-
+export const getProfileModel = state => state.editeProfileModel.value;
 export default editeProfileModelSlice.reducer;

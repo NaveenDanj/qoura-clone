@@ -73,8 +73,6 @@ const CreateAnswer = (props : any) => {
                 </View>
 
 
-
-
             </Modal>
         </View>
     ); 

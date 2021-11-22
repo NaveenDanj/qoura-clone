@@ -10,9 +10,19 @@ import PostTab from '../components/Account/PostTab';
 import FollowingTab from '../components/Account/FollowingTab';
 import FollowersTab from '../components/Account/FollwersTab';
 
+
+import { useSelector, useDispatch } from 'react-redux'
+import { setShow  } from '../Redux/EditeProfile';
+import EditProfileModel from '../components/Modals/EditProfileModel';
+
+
 const AccountTab = ({navigation} :  any) => {
     
     const [selectedIndex, setSelectedIndex] = React.useState(0);
+
+    //@ts-ignore
+    const {value} = useSelector((state) => state.editProfileModel);
+    const dispatch = useDispatch();
 
     return (
 
@@ -41,7 +51,8 @@ const AccountTab = ({navigation} :  any) => {
 
                     <Button
                         style={{ flex : 1 , borderRadius : 20 , height : 10 }}
-                        appearance='outline' 
+                        appearance='outline'
+                        onPress={ () => dispatch(setShow(true)) }
                         accessoryLeft={ <MaterialCommunityIcons name="pencil" size={20} color="black" /> }
                         >
                         Edit Profile
@@ -152,6 +163,8 @@ const AccountTab = ({navigation} :  any) => {
                 </TabView>
 
             </View>
+
+            <EditProfileModel />
 
         </View>
 
