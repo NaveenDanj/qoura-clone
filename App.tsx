@@ -11,6 +11,10 @@ import { ApplicationProvider, Layout, Text } from '@ui-kitten/components';
 
 import {QuestionModelProvider} from './components/Contexts/CreateQuestionContext';
 
+import { Provider } from 'react-redux';
+import Store from './Redux/Store';
+
+
 export default function App() {
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
@@ -20,12 +24,14 @@ export default function App() {
   } else {
     return (
       <ApplicationProvider {...eva} theme={eva.light}>
+        <Provider store={Store}>
           <QuestionModelProvider>
             <SafeAreaProvider>
               <Navigation colorScheme={colorScheme} />
               <StatusBar />
             </SafeAreaProvider>
           </QuestionModelProvider>
+        </Provider>
       </ApplicationProvider>
     );
   }
