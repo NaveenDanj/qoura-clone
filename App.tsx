@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import * as React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import useCachedResources from './hooks/useCachedResources';
@@ -11,7 +11,6 @@ import { ApplicationProvider, Layout, Text } from '@ui-kitten/components';
 
 import {QuestionModelProvider} from './components/Contexts/CreateQuestionContext';
 
-
 export default function App() {
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
@@ -21,12 +20,12 @@ export default function App() {
   } else {
     return (
       <ApplicationProvider {...eva} theme={eva.light}>
-        <QuestionModelProvider>
-          <SafeAreaProvider>
-            <Navigation colorScheme={colorScheme} />
-            <StatusBar />
-          </SafeAreaProvider>
-        </QuestionModelProvider>
+          <QuestionModelProvider>
+            <SafeAreaProvider>
+              <Navigation colorScheme={colorScheme} />
+              <StatusBar />
+            </SafeAreaProvider>
+          </QuestionModelProvider>
       </ApplicationProvider>
     );
   }
