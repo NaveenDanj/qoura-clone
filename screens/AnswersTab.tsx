@@ -7,7 +7,7 @@ import ForYouTab from '../components/Answer/ForYouTab';
 import RequestTab from '../components/Answer/RequestTab';
 import CreateAnswerButton from '../components/Global/CreateAnswerButton';
 
-function AnswersTab() {
+function AnswersTab(props : any) {
 
     const [selectedIndex, setSelectedIndex] = React.useState(0);
 

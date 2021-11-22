@@ -64,6 +64,7 @@ const CreateAnswer = (props : any) => {
                         <Input
                             multiline = {true}
                             placeholder='Start your question with "What" , "How" , "Why" , etc.'
+                            
                         />
                     </View>
 

@@ -11,10 +11,11 @@ import { Input } from '@ui-kitten/components';
 
 import Comment from '../Global/Comment'
 
-function Post() {
+function Post(props : any) {
+
+    const navigation = props.navigation
 
     const [showComment , setShowComment] = useState(false);
-
 
     return (
         <View style={styles.container}>
@@ -29,14 +30,14 @@ function Post() {
                         </View>
 
                         <View style={styles.userText}>
-                            <Text style={{ fontWeight : 'bold' }}>Username</Text>
+                            <Text onPress={() => navigation.push('Profile')} style={{ fontWeight : 'bold' }}>Username</Text>
                             <Text>Studied at Fedaral Institute Studied Studied Studied </Text>
                         </View>
                     </View>
 
-                    <View>
+                    <TouchableOpacity>
                         <Ionicons name="md-close" size={20} color="black" />
-                    </View>
+                    </TouchableOpacity>
 
                 </View>
 
@@ -108,8 +109,6 @@ function Post() {
 
                 </View>
 
-
-
             ) } 
 
             { showComment && (
@@ -122,7 +121,6 @@ function Post() {
                     <Comment />
 
                 </View>
-
 
             ) } 
             

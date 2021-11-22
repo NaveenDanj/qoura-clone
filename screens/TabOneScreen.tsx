@@ -16,7 +16,12 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
     <View style={styles.container}>
       <ScrollView>
         <DailyDigest />
-        <Post />
+
+        <Post navigation={navigation} />
+        <Post navigation={navigation} />
+        <Post navigation={navigation} />
+        <Post navigation={navigation} />
+        
       </ScrollView>
       
       <CreateAnswerButton />
