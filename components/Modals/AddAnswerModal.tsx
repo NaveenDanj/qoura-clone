@@ -22,7 +22,7 @@ const CreateAnswer = (props : any) => {
                 animationType="slide"
                 visible={addAnswer}
                 onRequestClose={() => {
-                    setVisibleAddAnswer(false);
+                    dispatch(setVisibleAddAnswer(false));
                 }}
             >
 
@@ -32,7 +32,7 @@ const CreateAnswer = (props : any) => {
 
                         <TouchableOpacity 
                             style={{ justifyContent : 'center' }}
-                            onPress={() => setVisibleAddAnswer(false)}
+                            onPress={() => dispatch(setVisibleAddAnswer(false))}
                         >
                         
                             <EvilIcons name="close" size={24} color="black" />
@@ -40,7 +40,7 @@ const CreateAnswer = (props : any) => {
 
                         <Button 
                             style={{ borderRadius : 20 }}
-                            onPress={() => setVisibleAddAnswer(false)}
+                            onPress={() => dispatch(setVisibleAddAnswer(false))}
                         >
                             Add
                         </Button>

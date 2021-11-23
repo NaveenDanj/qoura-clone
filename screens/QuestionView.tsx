@@ -1,9 +1,19 @@
 import { Entypo, FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons'
 import React from 'react'
 import { StyleSheet, Text, View , TouchableOpacity, ScrollView } from 'react-native'
+import {useDispatch} from 'react-redux'
+import {setVisibleAddAnswer} from '../Redux/OtherModals';
+
+
 import Post from '../components/Global/Post'
+import AddAnswer from '../components/Modals/AddAnswerModal';
+
+
 
 const QuestionView = ( {navigation}:  any) => {
+    
+    const dispatch = useDispatch();
+    
     return (
         <View style={styles.container}>
 
@@ -13,7 +23,9 @@ const QuestionView = ( {navigation}:  any) => {
 
             <View style={styles.actionBar}> 
 
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => dispatch( setVisibleAddAnswer(true) ) }
+                >
                     <FontAwesome name="pencil-square-o" size={24} color="black" />
                 </TouchableOpacity>
 
@@ -41,6 +53,8 @@ const QuestionView = ( {navigation}:  any) => {
                 <Post />
                 <Post />
             </ScrollView>
+
+            <AddAnswer />
 
         </View>
     )
