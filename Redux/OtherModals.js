@@ -5,7 +5,8 @@ export const OtherModalSlice = createSlice({
     name : 'OtherModal',
     
     initialState : {
-        addAnswer : false
+        addAnswer : false,
+        questionDetails : false
     
     },
 
@@ -15,11 +16,15 @@ export const OtherModalSlice = createSlice({
 
             state.addAnswer = action.payload;
 
+        },
+
+        setVisibleQuestionDetails : (state , action) => {
+            state.questionDetails = action.payload;
         }
 
     }
 
 });
 
-export const { setVisibleAddAnswer } = OtherModalSlice.actions;
+export const { setVisibleAddAnswer , setVisibleQuestionDetails } = OtherModalSlice.actions;
 export default OtherModalSlice.reducer

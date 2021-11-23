@@ -8,7 +8,7 @@ import { Button, Input } from "@ui-kitten/components";
 import {setVisibleAddAnswer} from '../../Redux/OtherModals';
 
 
-const CreateAnswer = (props : any) => {
+const AddAnswer = (props : any) => {
     
     const dispatch = useDispatch();
 
@@ -71,7 +71,7 @@ const CreateAnswer = (props : any) => {
     ); 
 }
 
-export default CreateAnswer
+export default AddAnswer
 
 const styles = StyleSheet.create({
 

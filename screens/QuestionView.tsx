@@ -1,18 +1,19 @@
 import { Entypo, FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons'
 import React from 'react'
 import { StyleSheet, Text, View , TouchableOpacity, ScrollView } from 'react-native'
-import {useDispatch} from 'react-redux'
-import {setVisibleAddAnswer} from '../Redux/OtherModals';
-
+import {useDispatch , useSelector} from 'react-redux'
+import {setVisibleAddAnswer , setVisibleQuestionDetails} from '../Redux/OtherModals';
 
 import Post from '../components/Global/Post'
 import AddAnswer from '../components/Modals/AddAnswerModal';
-
+import QuestionDetails from '../components/Modals/QuestionDetails';
 
 
 const QuestionView = ( {navigation}:  any) => {
     
     const dispatch = useDispatch();
+    //@ts-ignore
+    const {questionDetails} = useSelector((state)=> state.otherModals);
     
     return (
         <View style={styles.container}>
@@ -24,7 +25,7 @@ const QuestionView = ( {navigation}:  any) => {
             <View style={styles.actionBar}> 
 
                 <TouchableOpacity
-                    onPress={() => dispatch( setVisibleAddAnswer(true) ) }
+                    onPress={ () => dispatch( setVisibleAddAnswer(true) ) }
                 >
                     <FontAwesome name="pencil-square-o" size={24} color="black" />
                 </TouchableOpacity>
@@ -37,7 +38,12 @@ const QuestionView = ( {navigation}:  any) => {
                     <MaterialCommunityIcons name="account-arrow-right-outline" size={24} color="black" />
                 </TouchableOpacity>
 
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress = {() => { 
+                        dispatch( setVisibleQuestionDetails(true) ) 
+                        console.log('handled!' , questionDetails);
+                    }}
+                >
                     <Entypo name="dots-three-horizontal" size={24} color="black" />
                 </TouchableOpacity>
 
@@ -55,6 +61,7 @@ const QuestionView = ( {navigation}:  any) => {
             </ScrollView>
 
             <AddAnswer />
+            <QuestionDetails />
 
         </View>
     )
