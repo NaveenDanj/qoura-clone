@@ -1,5 +1,5 @@
 import { EvilIcons, Feather } from "@expo/vector-icons";
-import React, { useState , useContext } from "react";
+import React from "react";
 import { Modal, StyleSheet, Text, Pressable , Image , View, TouchableOpacity } from "react-native";
 import { Button, Input } from "@ui-kitten/components";
 

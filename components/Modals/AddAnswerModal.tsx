@@ -1,24 +1,28 @@
 import { EvilIcons } from "@expo/vector-icons";
-import React, { useState , useContext } from "react";
+import React from "react";
 import { Modal, StyleSheet, Text, Pressable , Image , View, TouchableOpacity } from "react-native";
+import { useDispatch , useSelector} from 'react-redux';
 
 import { Button, Input } from "@ui-kitten/components";
 
-import { createQuestionModelContext } from "../Contexts/CreateQuestionContext";
+import {setVisibleAddAnswer} from '../../Redux/OtherModals';
 
 
 const CreateAnswer = (props : any) => {
     
-    const [isOpen , setIsOpen] = useContext(createQuestionModelContext);
+    const dispatch = useDispatch();
+
+    //@ts-ignore
+    const { addAnswer } = useSelector( (state) => state.otherModals )
     
     return (
         <View style={styles.centeredView}>
             <Modal
                 presentationStyle = {'fullScreen'}
                 animationType="slide"
-                visible={props.openModel}
+                visible={addAnswer}
                 onRequestClose={() => {
-                    setIsOpen(!isOpen);
+                    setVisibleAddAnswer(false);
                 }}
             >
 
@@ -28,7 +32,7 @@ const CreateAnswer = (props : any) => {
 
                         <TouchableOpacity 
                             style={{ justifyContent : 'center' }}
-                            onPress={() => setIsOpen(!isOpen)}
+                            onPress={() => setVisibleAddAnswer(false)}
                         >
                         
                             <EvilIcons name="close" size={24} color="black" />
@@ -36,7 +40,7 @@ const CreateAnswer = (props : any) => {
 
                         <Button 
                             style={{ borderRadius : 20 }}
-                            onPress={() => setIsOpen(!isOpen)}
+                            onPress={() => setVisibleAddAnswer(false)}
                         >
                             Add
                         </Button>
