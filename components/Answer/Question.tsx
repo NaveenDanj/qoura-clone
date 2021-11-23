@@ -3,10 +3,15 @@ import { StyleSheet, Text, View , TouchableOpacity } from 'react-native'
 
 import { Entypo, EvilIcons, FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
 
+import {useDispatch} from 'react-redux'
+import {setVisibleQuestionDetails} from '../../Redux/OtherModals';
+
+
 const Question = (props : any) => {
     
     const navigation = props.navigation;
-    
+    const dispatch = useDispatch();
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -25,7 +30,7 @@ const Question = (props : any) => {
 
                 <View style={{ flexDirection : 'row' }}>
 
-                    <TouchableOpacity style={{ marginRight : 20 , flexDirection : 'row' , alignItems : 'center' }}>
+                    <TouchableOpacity onPress={() => navigation.navigate('QuestionView') } style={{ marginRight : 20 , flexDirection : 'row' , alignItems : 'center' }}>
                         <FontAwesome name="pencil-square-o" size={20} color="black" />
                         <Text style={{fontSize : 13 , marginLeft : 5}}>Answer</Text>
                     </TouchableOpacity>
@@ -35,7 +40,7 @@ const Question = (props : any) => {
                         <Text style={{fontSize : 13 , marginLeft : 5}}>Follow 1</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity onPress={() =>  navigation.navigate('QuestionView')  } style={{ marginRight : 20 , flexDirection : 'row' , alignItems : 'center' }}>
+                    <TouchableOpacity style={{ marginRight : 20 , flexDirection : 'row' , alignItems : 'center' }}>
                         <MaterialCommunityIcons name="format-color-marker-cancel" size={20} color="black" />
                         <Text style={{fontSize : 13 , marginLeft : 5}}>Pass</Text>
                     </TouchableOpacity>
@@ -50,6 +55,8 @@ const Question = (props : any) => {
 
 
             </View>
+
+            {/* <AddAnswer /> */}
 
 
         </View>
