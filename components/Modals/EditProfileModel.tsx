@@ -3,8 +3,11 @@ import React, { useState , useContext } from "react";
 import { Modal, StyleSheet, Text, Pressable , Image , View, TouchableOpacity } from "react-native";
 import { Button, Input } from "@ui-kitten/components";
 
+import EditProfileInputModel from './EditProfileInputModel'
+
 import { useSelector, useDispatch } from 'react-redux'
 import { setShow  } from '../../Redux/EditeProfile'
+import { setEditeProfileModelShow  } from '../../Redux/EditAccountInput'
 
 const EditProfileModel = () => {
 
@@ -44,7 +47,7 @@ const EditProfileModel = () => {
                 </View>
 
                     
-                    <TouchableOpacity style={styles.EditContainer}>
+                    <TouchableOpacity onPress={() => dispatch(setEditeProfileModelShow(true)) } style={styles.EditContainer}>
 
                         <View style={{ flexDirection : 'row' }}>
                             <Image style={{ width : 30 , height : 30 , borderRadius : 15 }} source={{ uri : 'https://avatars.githubusercontent.com/u/48654030?v=4' }} />
@@ -101,6 +104,7 @@ const EditProfileModel = () => {
 
             </Modal>
 
+            <EditProfileInputModel />
 
         </View>
     )
