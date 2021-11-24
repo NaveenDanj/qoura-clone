@@ -1,6 +1,6 @@
 import { AntDesign, EvilIcons} from "@expo/vector-icons";
 import React from "react";
-import { Modal, StyleSheet, Text , View, TouchableOpacity , ScrollView } from "react-native";
+import { Modal, StyleSheet, Text , View, TouchableOpacity , ScrollView , KeyboardAvoidingView } from "react-native";
 import { Button, Input } from "@ui-kitten/components";
 
 import { useSelector, useDispatch } from 'react-redux'
@@ -14,8 +14,8 @@ const EditProfileModel = () => {
 
 
     return (
-        <ScrollView 
-            contentContainerStyle={styles.centeredView}
+        <View 
+            style={styles.centeredView}
         
         >
 
@@ -29,7 +29,7 @@ const EditProfileModel = () => {
             >
 
 
-                <View style={styles.container}>
+                <ScrollView style={styles.container}>
 
                     <View style={styles.header}>
 
@@ -98,13 +98,13 @@ const EditProfileModel = () => {
                     </View>
                     
 
-                </View>
+                </ScrollView>
 
 
             </Modal>
 
 
-        </ScrollView>
+        </View>
     )
 }
 
@@ -116,18 +116,23 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 22
+        marginTop: 22,
+        flexGrow: 1,
+        padding: 20
     },
   
     container : {
-        padding : 10
+        flexGrow : 1,
+        paddingHorizontal : 10,
+        paddingBottom : 0
 
     },
 
     header : {
         flexDirection : 'row',
         justifyContent : 'space-between',
-        marginBottom : 20
+        marginBottom : 20,
+        marginTop : 10
     },
 
     inputContainer : {
