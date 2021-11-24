@@ -30,6 +30,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import AccountTab from '../screens/AccountTab';
 import Profile from '../screens/Profile';
+import Login from '../screens/Login';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -54,6 +55,7 @@ function RootNavigator() {
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Screen name="QuestionView" component={QuestionView} options={{ title: 'Question' }} />
       <Stack.Screen name="Profile" component={Profile} options={{ title: 'Profile' }} />
+      <Stack.Screen name="Login" component={Login} options={{ headerShown : false }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Search" component={ModalScreen} />
       </Stack.Group>

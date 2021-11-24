@@ -1,11 +1,14 @@
 import React from 'react'
-import { StyleSheet , Text, View } from 'react-native';
+import { StyleSheet , Text, View , TouchableOpacity } from 'react-native';
 
 import { Ionicons } from '@expo/vector-icons';
 
-function DailyDigest() {
+function DailyDigest(props : any) {
+
+    const navigation = props.navigation;
+
     return (
-        <View style={styles.component}>
+        <TouchableOpacity onPress={() => navigation.replace('Login')} style={styles.component}>
             
             <View>
                 <Ionicons name="md-mail-open-outline" size={50} color="black" />
@@ -17,7 +20,7 @@ function DailyDigest() {
             </View>
 
 
-        </View>
+        </TouchableOpacity>
     )
 }
 
