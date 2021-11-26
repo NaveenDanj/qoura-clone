@@ -1,11 +1,34 @@
 import { Input } from '@ui-kitten/components'
-import React , {useEffect} from 'react'
+import React , {useEffect , useState } from 'react'
 import { ImageBackground, KeyboardAvoidingView, ScrollView, StyleSheet, Text, TouchableOpacity, View ,  } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged , signInWithEmailAndPassword  } from "firebase/auth";
 
 const Login = ({ navigation} : any) => {
+
+    const [email , setEmail]  = useState('');
+    const [password , setPassword] = useState('');
+
+    const handleLogin = () => {
+       
+        const auth = getAuth();
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            // ...
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            // const errorMessage = error.message;            
+            alert(errorCode);
+        });
+
+
+    }
+
+
 
     useEffect(() => {
 
@@ -37,8 +60,8 @@ const Login = ({ navigation} : any) => {
                     </View>
 
                     <View style={{width : '90%' , marginHorizontal : 30 , marginTop : 25 }}>
-                        <Input placeholder={'Email'} />
-                        <Input placeholder={'Password'} secureTextEntry={true} style={{ marginTop : 10 }} />
+                        <Input onChangeText={(text:any) => setEmail(text)} placeholder={'Email'} />
+                        <Input onChangeText={(text:any) => setPassword(text)} placeholder={'Password'} secureTextEntry={true} style={{ marginTop : 10 }} />
 
                         <View style={{ marginTop : 10 , flexDirection : 'row' , justifyContent : 'space-between' }}>
 
@@ -46,7 +69,7 @@ const Login = ({ navigation} : any) => {
                                 <Text style={{ color : 'white' }}>Create Account</Text>
                             </TouchableOpacity>
 
-                            <TouchableOpacity onPress={() => navigation.navigate('Login')} style={{ backgroundColor: 'rgba(0,0,0,0.3)' , padding : 10 , borderRadius : 20 , width : 90 , alignItems : 'center' }}>
+                            <TouchableOpacity onPress={handleLogin} style={{ backgroundColor: 'rgba(0,0,0,0.3)' , padding : 10 , borderRadius : 20 , width : 90 , alignItems : 'center' }}>
                                 <Text style={{ color : 'white' }}>Login</Text>
                             </TouchableOpacity>
 
