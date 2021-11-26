@@ -1,15 +1,54 @@
 import { EvilIcons } from "@expo/vector-icons";
 import React, { useState , useContext } from "react";
-import { Modal, StyleSheet, Text, Pressable , Image , View, TouchableOpacity } from "react-native";
-
+import { Modal, StyleSheet, Text, Pressable , Image , View, TouchableOpacity, Alert } from "react-native";
 import { Button, Input } from "@ui-kitten/components";
-
 import { createQuestionModelContext } from "../Contexts/CreateQuestionContext";
 
+import { collection, doc, setDoc , getFirestore } from "firebase/firestore"; 
+import { getAuth } from "firebase/auth";
 
 const CreateAnswer = (props : any) => {
     
     const [isOpen , setIsOpen] = useContext(createQuestionModelContext);
+
+    const [question , setQuestion] = useState('');
+
+    const handelAddQuestion = async () => {
+
+        if(question == '' || question == null){
+            alert('Question cannot be empty!');
+        }else{
+
+            const auth = getAuth();
+            const user = auth.currentUser;
+
+            let db = getFirestore();
+            // Add a new document with a generated id
+            const questionRef = doc(collection(db, "Questions"));
+
+
+            if (user) {
+                
+                await setDoc(questionRef, {
+                    userID : user.uid,
+                    username : user.displayName,
+                    question : question,
+                    upvotes : 0,
+                    downvotes : 0,
+                    views : 0,
+                    status : 1
+                })
+
+                setIsOpen(false);
+
+            } else {
+                alert("Something went wrong! Please try again later");
+            }
+            
+
+        }
+
+    }
     
     return (
         <View style={styles.centeredView}>
@@ -36,7 +75,7 @@ const CreateAnswer = (props : any) => {
 
                         <Button 
                             style={{ borderRadius : 20 }}
-                            onPress={() => setIsOpen(!isOpen)}
+                            onPress={handelAddQuestion}
                         >
                             Add
                         </Button>
@@ -64,7 +103,7 @@ const CreateAnswer = (props : any) => {
                         <Input
                             multiline = {true}
                             placeholder='Start your question with "What" , "How" , "Why" , etc.'
-                            
+                            onChangeText={(text) => setQuestion(text)}
                         />
                     </View>
 
