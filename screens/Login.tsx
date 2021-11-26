@@ -1,9 +1,30 @@
 import { Input } from '@ui-kitten/components'
-import React from 'react'
+import React , {useEffect} from 'react'
 import { ImageBackground, KeyboardAvoidingView, ScrollView, StyleSheet, Text, TouchableOpacity, View ,  } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
 const Login = ({ navigation} : any) => {
+
+    useEffect(() => {
+
+        const auth = getAuth();
+        
+        const unsubscribe =  onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const uid = user.uid;
+                console.log('user has logged in');
+            } else {
+                // User is signed out
+                console.log('user has not logged in');
+            }
+        });
+
+        return unsubscribe;
+
+    } , []);
+
     return (
         <View style={{ flex : 1 }}>
             <ImageBackground source={ { uri : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2016%2F05%2F22%2F19%2F07%2Fbackground-1409025_960_720.png&f=1&nofb=1' } } resizeMode="cover" style={styles.image} >

@@ -52,13 +52,12 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 function RootNavigator() {
   return (
     <Stack.Navigator>
+      <Stack.Screen name="Login" component={Login} options={{ headerShown : false }} />
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Screen name="QuestionView" component={QuestionView} options={{ title: 'Question' }} />
       <Stack.Screen name="Profile" component={Profile} options={{ title: 'Profile' }} />
-      <Stack.Screen name="Login" component={Login} options={{ headerShown : false }} />
       <Stack.Screen name="Register" component={Register} options={{ headerShown : false }} />
-
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Search" component={ModalScreen} />
       </Stack.Group>
