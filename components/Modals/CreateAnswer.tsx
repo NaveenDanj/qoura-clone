@@ -26,7 +26,6 @@ const CreateAnswer = (props : any) => {
             // Add a new document with a generated id
             const questionRef = doc(collection(db, "Questions"));
 
-
             if (user) {
                 
                 await setDoc(questionRef, {
@@ -36,7 +35,10 @@ const CreateAnswer = (props : any) => {
                     upvotes : 0,
                     downvotes : 0,
                     views : 0,
-                    status : 1
+                    status : 1,
+                    answers : 0,
+                    followers : 0,
+                    lastFollowed : '1h'
                 })
 
                 setIsOpen(false);
